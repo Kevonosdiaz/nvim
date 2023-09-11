@@ -1,0 +1,10 @@
+{
+  "folke/tokyonight.nvim",
+  opts = {
+    transparent_mode = true,
+    styles = {
+      sidebars = "transparent",
+      floats = "transparent",
+    },
+  },
+}
