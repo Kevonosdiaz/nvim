@@ -3,6 +3,15 @@ require("config.lazy")
 
 local lspconfig = require("lspconfig")
 lspconfig.gopls.setup({})
+-- lspconfig.clangd.setup({})
+-- lspconfig.cssls.setup({})
+lspconfig.dockerls.setup({})
+-- lspconfig.intelephense.setup({})
+-- lspconfig.pylsp.setup({})
+-- lspconfig.lua_ls.setup({})
+-- lspconfig.pyright.setup({})
+-- lspconfig.java_language_server.setup({})
+lspconfig.ruff_lsp.setup({})
 
 vim.cmd([[autocmd BufWritePre *.go lua vim.lsp.buf.format({ async = true })]])
 
