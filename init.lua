@@ -10,7 +10,7 @@ lspconfig.dockerls.setup({})
 -- lspconfig.pylsp.setup({})
 -- lspconfig.lua_ls.setup({})
 -- lspconfig.pyright.setup({})
--- lspconfig.java_language_server.setup({})
+lspconfig.java_language_server.setup({})
 lspconfig.ruff_lsp.setup({})
 
 vim.cmd([[autocmd BufWritePre *.go lua vim.lsp.buf.format({ async = true })]])
