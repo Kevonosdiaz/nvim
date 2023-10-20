@@ -55,5 +55,8 @@
         "/home/kevon/.local/share/nvim/lazy/neoconf.nvim/types",
         "/home/kevon/.local/share/nvim/lazy/neoconf.nvim/types/lua",
         "${3rd}/luv/library"
+    ],
+    "diagnostics.globals": [
+        "leave_snippet"
     ]
 }
