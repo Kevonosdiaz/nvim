@@ -101,6 +101,7 @@ local plugins = {
         config = function()
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
+            require("core.utils").load_mappings("lspconfig")
         end,
     },
     {
