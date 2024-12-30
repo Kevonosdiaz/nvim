@@ -11,6 +11,14 @@ local plugins = {
         }
     },
     {
+        "neovim/nvim-lspconfig",
+        config = function()
+            require "plugins.configs.lspconfig"
+            require "custom.configs.lspconfig"
+            require("core.utils").load_mappings("lspconfig")
+        end,
+    },
+    {
         "kevinhwang91/nvim-ufo",
         lazy = false,
         dependencies = { "kevinhwang91/promise-async" },
@@ -106,14 +114,6 @@ local plugins = {
         config = function(_, _)
             require("core.utils").load_mappings("dap")
         end
-    },
-    {
-        "neovim/nvim-lspconfig",
-        config = function()
-            require "plugins.configs.lspconfig"
-            require "custom.configs.lspconfig"
-            require("core.utils").load_mappings("lspconfig")
-        end,
     },
     {
         "nvim-tree/nvim-tree.lua",
