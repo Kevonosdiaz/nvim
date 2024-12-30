@@ -1,5 +1,16 @@
 local plugins = {
     {
+        "williamboman/mason.nvim",
+        opts = {
+            ensure_installed = {
+                "clangd",
+                "clang-format",
+                "lua-language-server",
+                "codelldb",
+            }
+        }
+    },
+    {
         "kevinhwang91/nvim-ufo",
         lazy = false,
         dependencies = { "kevinhwang91/promise-async" },
@@ -103,17 +114,6 @@ local plugins = {
             require "custom.configs.lspconfig"
             require("core.utils").load_mappings("lspconfig")
         end,
-    },
-    {
-        "williamboman/mason.nvim",
-        opts = {
-            ensure_installed = {
-                "clangd",
-                "clang-format",
-                "lua-language-server",
-                "codelldb",
-            }
-        }
     },
     {
         "nvim-tree/nvim-tree.lua",
