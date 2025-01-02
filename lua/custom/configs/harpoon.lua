@@ -17,6 +17,9 @@ vim.keymap.set("n", "<leader>5", function() harpoon:list():select(5) end, { desc
 -- vim.keymap.set("n", "<C-S-h>", function() harpoon:list():prev() end)
 -- vim.keymap.set("n", "<C-S-l>", function() harpoon:list():next() end)
 
+-- Workaround for loading nvim-ufo folds
+require("harpoon"):extend(require("harpoon.extensions").builtins.command_on_nav('UfoEnableFold'))
+
 -- basic telescope configuration
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)

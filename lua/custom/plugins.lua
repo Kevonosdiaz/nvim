@@ -30,7 +30,8 @@ local plugins = {
         "ThePrimeagen/harpoon",
         lazy = false,
         branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+        -- nvim-ufo just for workaround config...
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim","kevinhwang91/nvim-ufo" },
         config = function()
             require("custom.configs.harpoon")
         end,
