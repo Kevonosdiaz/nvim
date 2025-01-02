@@ -34,3 +34,27 @@ vim.o.shiftwidth = 4   -- Number of spaces inserted when indenting
 
 -- Save undo history
 vim.opt.undofile = true
+
+-- Autocommand to save state of folds
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+    pattern = "?*",
+    callback = function()
+        vim.cmd([[silent! mkview 1]])
+    end,
+})
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+    pattern = "?*",
+    callback = function()
+        vim.cmd([[silent! loadview 1]])
+    end,
+})
+
+-- Reopen file at same location
+vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = { "*" },
+    callback = function()
+        if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+            vim.api.nvim_exec("normal! g'\"", false)
+        end
+    end
+})
