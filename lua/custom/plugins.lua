@@ -12,6 +12,9 @@ local plugins = {
     },
     {
         "neovim/nvim-lspconfig",
+        opts = {
+            inlay_hints = { enabled = true },
+        },
         config = function()
             require "plugins.configs.lspconfig"
             require "custom.configs.lspconfig"
@@ -31,7 +34,7 @@ local plugins = {
         lazy = false,
         branch = "harpoon2",
         -- nvim-ufo just for workaround config...
-        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim","kevinhwang91/nvim-ufo" },
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "kevinhwang91/nvim-ufo" },
         config = function()
             require("custom.configs.harpoon")
         end,

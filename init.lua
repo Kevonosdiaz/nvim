@@ -21,7 +21,15 @@ vim.opt.rtp:prepend(lazypath)
 require "plugins"
 
 -- Dumping custom stuff here
-vim.diagnostic.config({ virtual_text = false, signs = false }) -- Disable warning text and signs from LSP
+-- vim.diagnostic.config({ virtual_text = false, signs = false }) -- Disable warning text and signs from LSP
+
+vim.diagnostic.enable(false)
+-- <leader>tt to toggle diagnostics
+function _G.toggle_diagnostics()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end
+
+vim.api.nvim_set_keymap('n', '<leader>tt', ':call v:lua.toggle_diagnostics()<CR>', { noremap = true, silent = true })
 
 -- Attempt to fix Kitty over SSH
 vim.opt.termguicolors = true
