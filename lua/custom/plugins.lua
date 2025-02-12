@@ -74,6 +74,9 @@ local plugins = {
             -- VimTeX configuration goes here, e.g.
             vim.g.vimtex_view_method = 'zathura'
         end,
+        keys = {
+            { "<localLeader>l", "", desc = "+vimtex" },
+        },
     },
     -- install without yarn or npm
     {
