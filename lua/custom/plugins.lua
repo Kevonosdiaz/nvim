@@ -26,7 +26,7 @@ local plugins = {
                 "clangd",
                 "clang-format",
                 "lua-language-server",
-                "codelldb",
+                "yapf",
             }
         }
     },
@@ -197,6 +197,9 @@ local plugins = {
             formatters = {
                 clang_format = {
                     prepend_args = { '--style=file' },
+                },
+                yapf = {
+                    prepend_args = { 'style', 'pep8' },
                 },
             },
         },
