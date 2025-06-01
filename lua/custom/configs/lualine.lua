@@ -12,7 +12,7 @@ lualine.setup {
     },
     ignore_focus = {},
     always_divide_middle = true,
-    always_show_tabline = true,
+    always_show_tabline = false,
     globalstatus = false,
     refresh = {
       statusline = 100,
@@ -32,16 +32,11 @@ lualine.setup {
     },
     lualine_z = { 'location' },
   },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { 'filename' },
-    lualine_x = { 'progress' },
-    lualine_y = {},
-    lualine_z = {},
-  },
+  inactive_sections = {},
   tabline = {},
   winbar = {},
   inactive_winbar = {},
   extensions = {},
 }
+
+vim.opt.laststatus = 3
