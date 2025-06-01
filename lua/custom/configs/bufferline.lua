@@ -13,3 +13,4 @@ require('bufferline').setup {
 
 vim.keymap.set('n', '<Tab>', '<cmd> BufferLineCycleNext <CR>', { desc = 'Cycle buffers' })
 vim.keymap.set('n', '<leader>x', '<cmd> bp|sp|bn|bd! <CR>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<S-b>', '<cmd> enew <CR>', { desc = 'Spawn new buffer' })
