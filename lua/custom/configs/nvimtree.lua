@@ -30,6 +30,10 @@ local function vsplit_preview()
   api.tree.focus()
 end
 
+-- Open and close nvimtree bindings
+vim.keymap.set('n', '\\', '<cmd> NvimTreeToggle <CR>', { desc = 'Toggle nvimtree' })
+vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeToggle <CR>', { desc = 'Toggle nvimtree' })
+
 require('nvim-tree').setup {
   on_attach = function(bufnr)
     local opts = { buffer = bufnr }
