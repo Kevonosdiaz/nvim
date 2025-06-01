@@ -1,0 +1,10 @@
+# Plugins
+## Navigation
+- yazi/oil/nvim-tree/ranger
+- leap
+- Git blame?
+
+- Make sure bufferline works with navigation!
+
+# Features
+- Save cursor location in buffer

@@ -137,6 +137,9 @@ return {
     config = function()
       require 'custom.configs.nvimtree'
     end,
+    opts = function()
+      require 'custom.configs.nvimtree-opts'
+    end,
   },
   { -- Autoformat
     'stevearc/conform.nvim',
