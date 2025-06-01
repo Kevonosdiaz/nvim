@@ -118,18 +118,7 @@ return {
     version = '*',
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
-      require('bufferline').setup {
-        options = {
-          themable = true,
-        },
-        -- Fill in the gap in rest of tab line empty space
-        highlights = {
-          fill = {
-            -- fg = '#1E1E2F',
-            bg = '#1E1E2F',
-          },
-        },
-      }
+      require 'custom.configs.bufferline'
     end,
   },
   {
