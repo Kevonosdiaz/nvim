@@ -5,8 +5,12 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    options = { theme = 'catppuccin' },
+    dependencies = { 'nvim-tree/nvim-web-devicons', 'catppuccin/nvim' },
+    config = function()
+      require('lualine').setup {
+        options = { theme = 'catppuccin' },
+      }
+    end,
   },
   {
     'iamcco/markdown-preview.nvim',
