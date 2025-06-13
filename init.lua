@@ -34,6 +34,43 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
+-- Dumping custom stuff here
+-- vim.diagnostic.config({ virtual_text = false, signs = false }) -- Disable warning text and signs from LSP
+vim.diagnostic.enable(false)
+-- <leader>tt to toggle diagnostics
+function _G.toggle_diagnostics()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end
+
+vim.api.nvim_set_keymap('n', '<leader>tt', ':call v:lua.toggle_diagnostics()<CR>', { noremap = true, silent = true })
+
+-- Save undo history
+vim.opt.undofile = true
+
+-- Autocommand to save state of folds
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+  pattern = "?*",
+  callback = function()
+    vim.cmd([[silent! mkview 1]])
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+  pattern = "?*",
+  callback = function()
+    vim.cmd([[silent! loadview 1]])
+  end,
+})
+
+-- Reopen file at same location
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = { "*" },
+  callback = function()
+    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.api.nvim_exec("normal! g'\"", false)
+    end
+  end
+})
+
 -- Enable break indent
 vim.o.breakindent = true
 
@@ -220,7 +257,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -301,7 +338,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -406,12 +443,14 @@ require('lazy').setup({
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       {
         'mason-org/mason.nvim',
-        opts = { ensure_installed = {
-          'clangd',
-          'clang-format',
-          'lua-language-server',
-          'yapf',
-        } },
+        opts = {
+          ensure_installed = {
+            'clangd',
+            'clang-format',
+            'lua-language-server',
+            'yapf',
+          }
+        },
       },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
