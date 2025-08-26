@@ -4,6 +4,21 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'rcarriga/nvim-notify',
+    config = function()
+      require('notify').setup {
+        background_color = '#181825',
+      }
+      vim.notify = require 'notify'
+    end,
+  },
+  {
+    'm4xshen/hardtime.nvim',
+    lazy = false,
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    opts = {},
+  },
+  {
     'folke/flash.nvim',
     event = 'VeryLazy',
     ---@type Flash.Config
