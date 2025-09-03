@@ -18,7 +18,7 @@ vim.opt.termguicolors = true
 vim.o.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+vim.o.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -48,27 +48,27 @@ vim.api.nvim_set_keymap('n', '<leader>tt', ':call v:lua.toggle_diagnostics()<CR>
 vim.opt.undofile = true
 
 -- Autocommand to save state of folds
-vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-  pattern = "?*",
+vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+  pattern = '?*',
   callback = function()
-    vim.cmd([[silent! mkview 1]])
+    vim.cmd [[silent! mkview 1]]
   end,
 })
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = "?*",
+vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
+  pattern = '?*',
   callback = function()
-    vim.cmd([[silent! loadview 1]])
+    vim.cmd [[silent! loadview 1]]
   end,
 })
 
 -- Reopen file at same location
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = { "*" },
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = { '*' },
   callback = function()
-    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
-      vim.api.nvim_exec("normal! g'\"", false)
+    if vim.fn.line '\'"' > 1 and vim.fn.line '\'"' <= vim.fn.line '$' then
+      vim.api.nvim_exec('normal! g\'"', false)
     end
-  end
+  end,
 })
 
 -- Enable break indent
@@ -257,7 +257,7 @@ require('lazy').setup({
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
 
-  {                     -- Useful plugin to show you pending keybinds.
+  { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -338,7 +338,7 @@ require('lazy').setup({
       { 'nvim-telescope/telescope-ui-select.nvim' },
 
       -- Useful for getting pretty icons, but requires a Nerd Font.
-      { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
+      { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
       -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -449,7 +449,7 @@ require('lazy').setup({
             'clang-format',
             'lua-language-server',
             'yapf',
-          }
+          },
         },
       },
       'mason-org/mason-lspconfig.nvim',
