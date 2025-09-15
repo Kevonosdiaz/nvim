@@ -218,7 +218,7 @@ return {
           prepend_args = { '--style=file' },
         },
         yapf = {
-          prepend_args = { 'style', 'pep8' },
+          prepend_args = { '--style', 'pep8' },
         },
       },
     },
