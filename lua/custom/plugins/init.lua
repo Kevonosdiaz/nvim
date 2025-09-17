@@ -4,6 +4,13 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'mrjones2014/smart-splits.nvim',
+    lazy = false,
+    config = function()
+      require 'custom.configs.smart-splits'
+    end,
+  },
+  {
     'R-nvim/R.nvim',
     -- Only required if you also set defaults.lazy = true
     lazy = false,
@@ -178,24 +185,24 @@ return {
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
   },
-  {
-    'christoomey/vim-tmux-navigator',
-    cmd = {
-      'TmuxNavigateLeft',
-      'TmuxNavigateDown',
-      'TmuxNavigateUp',
-      'TmuxNavigateRight',
-      'TmuxNavigatePrevious',
-      'TmuxNavigatorProcessList',
-    },
-    keys = {
-      { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
-      { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
-      { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
-      { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
-      { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
-    },
-  },
+  -- {
+  --   'christoomey/vim-tmux-navigator',
+  --   cmd = {
+  --     'TmuxNavigateLeft',
+  --     'TmuxNavigateDown',
+  --     'TmuxNavigateUp',
+  --     'TmuxNavigateRight',
+  --     'TmuxNavigatePrevious',
+  --     'TmuxNavigatorProcessList',
+  --   },
+  --   keys = {
+  --     { '<c-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+  --     { '<c-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+  --     { '<c-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+  --     { '<c-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+  --     { '<c-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+  --   },
+  -- },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons', 'catppuccin/nvim' },
