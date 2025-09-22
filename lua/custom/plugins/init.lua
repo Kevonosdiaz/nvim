@@ -80,7 +80,13 @@ return {
     'm4xshen/hardtime.nvim',
     lazy = false,
     dependencies = { 'MunifTanjim/nui.nvim' },
-    opts = {},
+    opts = {
+      -- Be a bit more forgiving for now
+      max_time = 2000,
+      max_count = 6,
+      disable_mouse = false,
+      timeout = 2500,
+    },
   },
   {
     'folke/flash.nvim',
