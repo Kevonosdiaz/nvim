@@ -166,6 +166,7 @@ return {
     init = function()
       -- VimTeX configuration goes here, e.g.
       vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_quickfix_ignore_filters = { 'Command \\\\underbar  has changed', 'Command \\\\underline  has changed' }
     end,
     keys = {
       { '<localLeader>l', '', desc = '+vimtex' },
