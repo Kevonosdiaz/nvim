@@ -32,12 +32,12 @@ local ftMap = {
 }
 require('ufo').setup {
   open_fold_hl_timeout = 150,
-  close_fold_kinds_for_ft = {
-    default = { 'imports' },
-    json = { 'array' },
-    c = {},
-    cpp = {},
-  },
+  -- close_fold_kinds_for_ft = {
+  --   default = { 'imports' },
+  --   json = { 'array' },
+  --   c = {},
+  --   cpp = {},
+  -- },
   preview = {
     win_config = {
       border = { '', '─', '', '', '', '─', '', '' },

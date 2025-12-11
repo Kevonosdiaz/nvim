@@ -32,6 +32,19 @@ vim.schedule(function()
   vim.o.clipboard = 'unnamedplus'
 end)
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'tex', 'plaintex' }, -- You can include other LaTeX-related filetypes here
+  callback = function()
+    vim.opt_local.tabstop = 2 -- A tab character is 2 columns wide
+    vim.opt_local.shiftwidth = 2 -- Auto-indent commands (like >>) use 2 spaces
+    vim.opt_local.softtabstop = 2 -- When pressing Tab in insert mode, use 2 spaces
+    vim.opt_local.expandtab = true -- Use spaces instead of actual tab characters
+    -- Disable auto-indenting options specifically for this buffer
+    vim.opt_local.autoindent = true
+    vim.opt_local.smartindent = false
+    vim.opt_local.indentexpr = ''
+  end,
+})
 -- Dumping custom stuff here
 -- vim.diagnostic.config({ virtual_text = false, signs = false }) -- Disable warning text and signs from LSP
 vim.diagnostic.enable(false)
