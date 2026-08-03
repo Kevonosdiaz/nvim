@@ -1,4 +1,9 @@
 return {
+  {
+    "kevinhwang91/nvim-ufo",
+    lazy = false,
+    dependencies = { "kevinhwang91/promise-async" },
+  },
   { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
   {
     "mason-org/mason-lspconfig.nvim",
