@@ -1,16 +1,16 @@
 return {
   {
-   'windwp/nvim-autopairs',
+    "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = true,
     opts = {},
   },
   {
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
     opts = {},
   },
   {
-    'NMAC427/guess-indent.nvim',
+    "NMAC427/guess-indent.nvim",
     opts = {},
   },
   -- {
@@ -21,7 +21,7 @@ return {
   --   opts = {},
   -- },
   {
-    'mfussenegger/nvim-lint',
+    "mfussenegger/nvim-lint",
   },
   {
     "folke/which-key.nvim",
@@ -41,5 +41,9 @@ return {
       },
     },
   },
-
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
 }
