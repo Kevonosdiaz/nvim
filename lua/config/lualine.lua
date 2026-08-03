@@ -1,11 +1,11 @@
-local lualine = require 'lualine'
+local lualine = require("lualine")
 
-lualine.setup {
+lualine.setup({
   options = {
     icons_enabled = true,
-    theme = 'catppuccin-mocha',
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    theme = "auto",
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -21,22 +21,22 @@ lualine.setup {
     },
   },
   sections = {
-    lualine_a = { 'mode' },
-    lualine_b = { 'branch' },
-    lualine_c = { 'filename' },
+    lualine_a = { "mode" },
+    lualine_b = { "branch" },
+    lualine_c = { "filename" },
     lualine_x = {
-      'progress',
+      "progress",
     },
     lualine_y = {
       "os.date('%-I:%-M')",
     },
-    lualine_z = { 'location' },
+    lualine_z = { "location" },
   },
   inactive_sections = {},
   tabline = {},
   winbar = {},
   inactive_winbar = {},
   extensions = {},
-}
+})
 
 vim.opt.laststatus = 3
