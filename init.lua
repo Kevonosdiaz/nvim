@@ -25,6 +25,10 @@ vim.o.cursorline = true
 vim.o.scrolloff = 14
 vim.o.confirm = true
 
+-- Disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Shared clipboard with OS
 vim.schedule(function()
   vim.o.clipboard = "unnamedplus"
@@ -90,3 +94,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- [Lazy, Plugins, and Stuff]
 require("config.lazy")
+vim.cmd([[colorscheme luna]])

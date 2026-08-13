@@ -46,4 +46,14 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
+  { "karb94/neoscroll.nvim", opts = {
+    duration_multiplier = 0.5,
+  } },
+  -- {
+  --   "folke/twilight.nvim",
+  --   opts = {
+  --     context = 18,
+  --     dimming = { alpha = 0.70 },
+  --   },
+  -- },
 }
