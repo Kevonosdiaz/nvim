@@ -8,13 +8,7 @@ return {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
-      local builtin = require("telescope.builtin")
-      -- Open file finder in Neovim config dir
-      vim.keymap.set("n", "<space>en", function()
-        builtin.find_files({
-          cwd = vim.fn.stdpath("config"),
-        })
-      end)
+      require("config.telescope")
     end,
   },
   {
