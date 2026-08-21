@@ -97,10 +97,12 @@ return {
       vim.g.vimtex_view_method = "zathura"
       vim.g.vimtex_quickfix_ignore_filters =
         { "Command \\\\underbar  has changed", "Command \\\\underline  has changed" }
+      -- Force vimtex to ignore localleader key
+      vim.g.vimtex_mappings_prefix = "<leader>l"
     end,
-    keys = {
-      { "<localLeader>l", "", desc = "+vimtex" },
-    },
+    -- keys = {
+    --   { "<localLeader>l", "", desc = "+vimtex" },
+    -- },
   },
   { -- Autoformat
     "stevearc/conform.nvim",
