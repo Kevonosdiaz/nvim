@@ -92,6 +92,28 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Terminal shortcuts
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- NOTE: float-term.lua in ./lua/custom adds <space>ot for floating terminal toggle
+vim.keymap.set("n", "<space>oht", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 12)
+  vim.cmd("normal i")
+end, { desc = "[O]pen [H]orizontal [T]erminal split" })
+
+vim.keymap.set("n", "<space>ovt", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.api.nvim_win_set_width(0, 64)
+  vim.cmd("normal i")
+end, { desc = "[O]pen [V]ertical [T]erminal split" })
+
 -- [Lazy, Plugins, and Stuff]
 require("config.lazy")
 vim.cmd([[colorscheme luna]])
+
+-- Floating terminal mini plugin
+require("float-term")
