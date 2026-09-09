@@ -5,9 +5,15 @@ require("bufferline").setup({
   -- Fill in the gap in rest of tab line empty space
   highlights = {
     fill = {
-      -- fg = '#1E1E2F',
-      -- bg = '#1E1E2F',
-      bg = "#000000",
+      -- Catppuccin Mocha
+      -- fg = "#1E1E2F",
+      -- bg = "#1E1E2F",
+
+      -- luna.nvim
+      -- bg = "#000000",
+
+      -- doom-one
+      bg = "#282C34",
     },
   },
 })

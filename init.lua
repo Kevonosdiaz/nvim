@@ -113,7 +113,8 @@ end, { desc = "[O]pen [V]ertical [T]erminal split" })
 
 -- [Lazy, Plugins, and Stuff]
 require("config.lazy")
-vim.cmd([[colorscheme luna]])
+-- vim.cmd([[colorscheme luna]])
+vim.cmd([[colorscheme doom-one]])
 
 -- Floating terminal mini plugin
 require("float-term")
