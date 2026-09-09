@@ -42,6 +42,19 @@ return {
   },
   {
     "NTBBloodbath/doom-one.nvim",
+    lazy = false,
+    priority = 1000,
+    init = function()
+      -- Force flash.nvim colours to avoid strange symbols w/ doom-one
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "doom-one",
+        callback = function()
+          vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#ff5555", fg = "#ffffff", bold = true })
+          vim.api.nvim_set_hl(0, "FlashMatch", { bg = "#3f444a", fg = "#bbc2cf" })
+          vim.api.nvim_set_hl(0, "FlashCurrent", { bg = "#51afef", fg = "#ffffff" })
+        end,
+      })
+    end,
     config = function()
       -- Add color to cursor
       vim.g.doom_one_cursor_coloring = false
