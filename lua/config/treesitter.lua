@@ -1,0 +1,15 @@
+require("nvim-treesitter").install({
+  "c",
+  "cpp",
+  "cmake",
+  "css",
+  "dockerfile",
+  "fish",
+  "go",
+  "html",
+  "make",
+  "python",
+  "javascript",
+  "lua",
+  "markdown",
+})

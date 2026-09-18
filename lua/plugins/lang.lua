@@ -4,7 +4,14 @@ return {
     lazy = false,
     dependencies = { "kevinhwang91/promise-async" },
   },
-  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+    build = ":TSUpdate",
+    config = function()
+      require("config.treesitter")
+    end,
+  },
   {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
@@ -106,10 +113,19 @@ return {
     -- },
   },
   {
-    "nvim-neorg/neorg",
-    lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-    version = "*", -- Pin Neorg to the latest stable release
-    config = true,
+    "nvim-orgmode/orgmode",
+    event = "VeryLazy",
+    ft = { "org" },
+    config = function()
+      -- Setup orgmode
+      require("orgmode").setup({
+        org_agenda_files = "~/orgfiles/**/*",
+        org_default_notes_file = "~/orgfiles/refile.org",
+      })
+
+      -- Experimental LSP support
+      vim.lsp.enable("org")
+    end,
   },
   { -- Autoformat
     "stevearc/conform.nvim",
