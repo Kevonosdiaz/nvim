@@ -113,8 +113,16 @@ end, { desc = "[O]pen [V]ertical [T]erminal split" })
 
 -- [Lazy, Plugins, and Stuff]
 require("config.lazy")
-vim.cmd([[colorscheme luna]])
+-- vim.cmd([[colorscheme luna]])
 -- vim.cmd([[colorscheme doom-one]])
+vim.cmd([[colorscheme catppuccin-mocha]])
 
 -- Floating terminal mini plugin
 require("float-term")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
