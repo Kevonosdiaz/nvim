@@ -47,7 +47,7 @@ return {
     opts = {},
   },
   { "karb94/neoscroll.nvim", opts = {
-    duration_multiplier = 0.5,
+    duration_multiplier = 0.3,
   } },
   -- {
   --   "folke/twilight.nvim",

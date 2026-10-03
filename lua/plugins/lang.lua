@@ -13,6 +13,14 @@ return {
     end,
   },
   {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {},
+    config = function()
+      require("config.lspconfig")
+    end,
+  },
+  {
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
