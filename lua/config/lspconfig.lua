@@ -13,6 +13,11 @@ local clang_cmd = {
 vim.lsp.config("clangd", {
   cmd = clang_cmd,
   root_dir = "compile_commands.json",
+  root_markers = {
+    ".clangd",
+    "compile_commands.json",
+    ".git",
+  },
   init_options = {
     usePlaceholders = true,
     completeUnimported = true,
