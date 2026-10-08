@@ -1,5 +1,25 @@
 return {
   {
+    "kdheepak/lazygit.nvim",
+    lazy = true,
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
     version = "*",
     dependencies = {
@@ -14,26 +34,34 @@ return {
   },
   {
     "stevearc/aerial.nvim",
-    opts = {},
+    opts = {
+      layout = {
+        min_width = 50,
+        default_direction = "prefer_left",
+      },
+    },
     -- Optional dependencies
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
+    config = function()
+      vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+    end,
   },
-  {
-    "stevearc/overseer.nvim",
-    ---@module 'overseer'
-    ---@type overseer.SetupOpts
-    opts = {},
-  },
-  {
-    "stevearc/quicker.nvim",
-    ft = "qf",
-    ---@module "quicker"
-    ---@type quicker.SetupOptions
-    opts = {},
-  },
+  -- {
+  --   "stevearc/overseer.nvim",
+  --   ---@module 'overseer'
+  --   ---@type overseer.SetupOpts
+  --   opts = {},
+  -- },
+  -- {
+  --   "stevearc/quicker.nvim",
+  --   ft = "qf",
+  --   ---@module "quicker"
+  --   ---@type quicker.SetupOptions
+  --   opts = {},
+  -- },
   {
     "basola21/PDFview",
     lazy = false,
