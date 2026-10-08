@@ -1,4 +1,4 @@
-local api = require 'nvim-tree.api'
+local api = require("nvim-tree.api")
 
 local function edit_or_open()
   local node = api.tree.get_node_under_cursor()
@@ -30,11 +30,7 @@ local function vsplit_preview()
   api.tree.focus()
 end
 
--- Open and close nvimtree bindings
-vim.keymap.set('n', '\\', '<cmd> NvimTreeToggle <CR>', { desc = 'Toggle nvimtree' })
-vim.keymap.set('n', '<leader>e', '<cmd> NvimTreeToggle <CR>', { desc = 'Toggle nvimtree' })
-
-require('nvim-tree').setup {
+require("nvim-tree").setup({
   on_attach = function(bufnr)
     local opts = { buffer = bufnr }
     api.config.mappings.default_on_attach(bufnr)
@@ -57,11 +53,11 @@ require('nvim-tree').setup {
         api.node.open.edit()
       end
     end
-    vim.keymap.set('n', 'h', lefty, opts)
-    vim.keymap.set('n', '<Left>', lefty, opts)
+    vim.keymap.set("n", "h", lefty, opts)
+    vim.keymap.set("n", "<Left>", lefty, opts)
     -- vim.keymap.set("n", "<Right>", righty, opts)
     -- vim.keymap.set("n", "l", righty, opts)
-    vim.keymap.set('n', 'l', edit_or_open, opts)
-    vim.keymap.set('n', 'L', vsplit_preview, opts)
+    vim.keymap.set("n", "l", edit_or_open, opts)
+    vim.keymap.set("n", "L", vsplit_preview, opts)
   end,
-}
+})
