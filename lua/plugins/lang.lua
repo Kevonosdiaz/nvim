@@ -1,5 +1,11 @@
 return {
   {
+    "blackhat-7/vellum.nvim",
+    ft = "markdown",
+    keys = { { "<leader>mp", "<cmd>Vellum<cr>", desc = "Markdown preview" } },
+    opts = {},
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = ":TSUpdate",
