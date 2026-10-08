@@ -33,6 +33,17 @@ return {
     end,
   },
   {
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+  {
     "stevearc/aerial.nvim",
     opts = {
       layout = {
@@ -62,18 +73,18 @@ return {
   --   ---@type quicker.SetupOptions
   --   opts = {},
   -- },
-  {
-    "basola21/PDFview",
-    lazy = false,
-    dependencies = { "nvim-telescope/telescope.nvim" },
-    config = function()
-      vim.api.nvim_create_autocmd("BufReadPost", {
-        pattern = "*.pdf",
-        callback = function()
-          local file_path = vim.api.nvim_buf_get_name(0)
-          require("pdfview").open(file_path)
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "basola21/PDFview",
+  --   lazy = false,
+  --   dependencies = { "nvim-telescope/telescope.nvim" },
+  --   config = function()
+  --     vim.api.nvim_create_autocmd("BufReadPost", {
+  --       pattern = "*.pdf",
+  --       callback = function()
+  --         local file_path = vim.api.nvim_buf_get_name(0)
+  --         require("pdfview").open(file_path)
+  --       end,
+  --     })
+  --   end,
+  -- },
 }

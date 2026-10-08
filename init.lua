@@ -34,6 +34,13 @@ vim.schedule(function()
   vim.o.clipboard = "unnamedplus"
 end)
 
+-- Use treesitter folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldtext = ""
+
 -- 4 size tab, expand tabs to spaces
 vim.o.tabstop = 4
 vim.o.expandtab = true
@@ -121,9 +128,11 @@ vim.cmd([[colorscheme catppuccin-mocha]])
 require("float-term")
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp" },
+  pattern = { "c", "cpp", "h", "hpp" },
   callback = function()
     vim.treesitter.start()
+    -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    -- vim.wo[0][0].foldmethod = "expr"
   end,
 })
 
@@ -135,3 +144,15 @@ require("aerial").setup({
     vim.keymap.set("n", "}", "<cmd>AerialNext<CR>", { buffer = bufnr })
   end,
 })
+
+require("oil").setup()
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Rebind <C-L> clear command to avoid conflict with smart-splits
+vim.keymap.set("n", "<C-[>", function()
+  vim.cmd("nohlsearch")
+  vim.cmd("redraw")
+
+  local mc_ns = vim.api.nvim_create_namespace("nvim.multicursor")
+  vim.api.nvim_buf_clear_namespace(0, mc_ns, 0, -1)
+end, { desc = "Clear highlights, screen, and multicursors" })
