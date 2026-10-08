@@ -99,6 +99,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- Rebind <C-L> clear command to avoid conflict with smart-splits
+vim.keymap.set("n", "<C-[>", function()
+  vim.cmd("nohlsearch")
+  vim.cmd("redraw")
+
+  local mc_ns = vim.api.nvim_create_namespace("nvim.multicursor")
+  vim.api.nvim_buf_clear_namespace(0, mc_ns, 0, -1)
+end, { desc = "Clear highlights, screen, and multicursors" })
+
 -- Terminal shortcuts
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
@@ -148,11 +157,7 @@ require("aerial").setup({
 require("oil").setup()
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
--- Rebind <C-L> clear command to avoid conflict with smart-splits
-vim.keymap.set("n", "<C-[>", function()
-  vim.cmd("nohlsearch")
-  vim.cmd("redraw")
-
-  local mc_ns = vim.api.nvim_create_namespace("nvim.multicursor")
-  vim.api.nvim_buf_clear_namespace(0, mc_ns, 0, -1)
-end, { desc = "Clear highlights, screen, and multicursors" })
+-- Enable mini.nvim plugins
+require("mini.ai").setup()
+require("mini.surround").setup()
+require("mini.bracketed").setup()
