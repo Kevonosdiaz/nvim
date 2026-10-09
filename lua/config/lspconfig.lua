@@ -34,3 +34,6 @@ vim.lsp.config("clangd", {
 
 vim.lsp.enable("clangd")
 vim.keymap.set("n", "ch", "<cmd>LspClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)" })
+
+-- basedpyright server for python
+vim.lsp.enable("basedpyright")

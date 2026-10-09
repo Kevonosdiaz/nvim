@@ -1,4 +1,11 @@
 -- [Basic Vim Settings]
+-- Show LSP diagnostics
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = false,
+  underline = true,
+  update_in_insert = false,
+})
 
 -- Set <space> as the leader key
 vim.g.mapleader = " "
