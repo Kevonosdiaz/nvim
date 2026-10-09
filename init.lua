@@ -28,9 +28,6 @@ require("aerial").setup({
   end,
 })
 
-require("oil").setup()
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-
 -- Enable mini.nvim plugins
 require("mini.ai").setup()
 require("mini.surround").setup()
