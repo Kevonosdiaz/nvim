@@ -12,16 +12,6 @@ local clang_cmd = {
 -- configure clangd server
 vim.lsp.config("clangd", {
   cmd = clang_cmd,
-  root_dir = function(fname)
-    local util = require("lspconfig.util")
-    local root = util.root_pattern("compile_commands.json", ".clangd", ".git")(fname)
-    if not root or root == "" then
-      root = vim.fn.fnamemodify(fname, ":p:h")
-    end
-
-    return root
-  end,
-
   init_options = {
     usePlaceholders = true,
     completeUnimported = true,

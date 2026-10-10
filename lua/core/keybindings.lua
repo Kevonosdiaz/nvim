@@ -53,7 +53,7 @@ map("n", "\\", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snack
 -- map("n", "<leader>e", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snacks explorer" })
 
 -- lspconfig rebindings
-map("n", "ga", vim.lsp.buf.code_action, { desc = "LSP code action" })
+map({ "n", "v" }, "ga", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("n", "gn", vim.lsp.buf.rename, { desc = "LSP rename" })
 map("n", "gx", vim.lsp.codelens.run, { desc = "LSP codelens run" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostic" })
