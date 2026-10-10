@@ -46,6 +46,8 @@ map("n", "<space>ovt", function()
   vim.cmd("normal i")
 end, { desc = "[O]pen [V]ertical [T]erminal split" })
 
--- File explorer
-map("n", "\\", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
-map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+-- File explorer (bindings are in snacks config)
+-- map("n", "\\", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+-- map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
+map("n", "\\", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snacks explorer" })
+-- map("n", "<leader>e", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snacks explorer" })
