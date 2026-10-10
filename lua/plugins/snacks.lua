@@ -10,13 +10,13 @@ return {
       -- refer to the configuration section below
       bigfile = { enabled = true },
       dashboard = { enabled = true },
-      explorer = { enabled = true },
+      explorer = { enabled = true, git_status = true },
       input = { enabled = true },
       picker = { enabled = true },
       quickfile = { enabled = true },
-      scope = { enabled = true },
-      statuscolumn = { enabled = true },
-      words = { enabled = true },
+      -- scope = { enabled = true },
+      -- statuscolumn = { enabled = true },
+      -- words = { enabled = true },
       -- notifier = { enabled = true },
       -- scroll = { enabled = true },
       -- indent = { enabled = false },
@@ -37,13 +37,13 @@ return {
         end,
         desc = "Buffers",
       },
-      {
-        "<leader>/",
-        function()
-          Snacks.picker.grep()
-        end,
-        desc = "Grep",
-      },
+      -- {
+      --   "<leader>/",
+      --   function()
+      --     Snacks.picker.grep()
+      --   end,
+      --   desc = "Grep",
+      -- },
       {
         "<leader>:",
         function()
@@ -56,7 +56,7 @@ return {
         function()
           Snacks.picker.explorer()
         end,
-        desc = "File Explorer",
+        desc = "File [E]xplorer",
       },
       -- Find
       -- {
@@ -71,43 +71,43 @@ return {
         function()
           Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
         end,
-        desc = "Find Config File",
+        desc = "[F]ind [C]onfig File",
       },
       {
         "<leader>ff",
         function()
           Snacks.picker.files()
         end,
-        desc = "Find Files",
+        desc = "[F]ind [F]iles",
       },
       {
         "<leader>fg",
         function()
           Snacks.picker.git_files()
         end,
-        desc = "Find Git Files",
+        desc = "[F]ind [G]it Files",
       },
       {
         "<leader>fr",
         function()
           Snacks.picker.recent()
         end,
-        desc = "Recent",
+        desc = "[F]ind [R]ecent",
       },
       -- Git
       {
-        "<leader>gc",
+        "<leader>gl",
         function()
           Snacks.picker.git_log()
         end,
-        desc = "Git Log",
+        desc = "[G]it [L]og",
       },
       {
         "<leader>gs",
         function()
           Snacks.picker.git_status()
         end,
-        desc = "Git Status",
+        desc = "[G]it [S]tatus",
       },
       -- Search
     },
