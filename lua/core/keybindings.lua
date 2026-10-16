@@ -57,3 +57,15 @@ map({ "n", "v" }, "ga", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("n", "gn", vim.lsp.buf.rename, { desc = "LSP rename" })
 map("n", "gx", vim.lsp.codelens.run, { desc = "LSP codelens run" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Show line diagnostic" })
+
+-- tmux-like toggle zoom window/split
+vim.keymap.set("n", "<leader>z", function()
+  if vim.t.is_zoomed then
+    vim.cmd("wincmd =")
+    vim.t.is_zoomed = false
+  else
+    vim.cmd("wincmd _")
+    vim.cmd("wincmd |")
+    vim.t.is_zoomed = true
+  end
+end, { desc = "Toggle zoom split" })
