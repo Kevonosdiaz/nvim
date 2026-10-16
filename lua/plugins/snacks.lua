@@ -51,13 +51,13 @@ return {
         end,
         desc = "Command History",
       },
-      {
-        "<leader>e",
-        function()
-          Snacks.picker.explorer()
-        end,
-        desc = "File [E]xplorer",
-      },
+      -- {
+      --   "<leader>e",
+      --   function()
+      --     Snacks.picker.explorer()
+      --   end,
+      --   desc = "File [E]xplorer",
+      -- },
       -- Find
       -- {
       --   "<leader>fb",

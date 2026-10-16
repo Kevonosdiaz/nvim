@@ -47,10 +47,10 @@ map("n", "<space>ovt", function()
 end, { desc = "[O]pen [V]ertical [T]erminal split" })
 
 -- File explorer (bindings are in snacks config)
--- map("n", "\\", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
--- map("n", "<leader>e", "<cmd> NvimTreeToggle <CR>", { desc = "Toggle nvimtree" })
-map("n", "\\", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snacks explorer" })
+-- map("n", "\\", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snacks explorer" })
 -- map("n", "<leader>e", "<cmd> lua Snacks.picker.explorer() <CR>", { desc = "Toggle Snacks explorer" })
+map({ "n", "v" }, "<leader>e", "<cmd>Yazi<cr>", { desc = "Open yazi at the current file" })
+map({ "n", "v" }, "\\", "<cmd>Yazi<cr>", { desc = "Open yazi at the current file" })
 
 -- lspconfig rebindings
 map({ "n", "v" }, "ga", vim.lsp.buf.code_action, { desc = "LSP code action" })
