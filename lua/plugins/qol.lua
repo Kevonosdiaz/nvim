@@ -49,10 +49,10 @@ return {
     "lewis6991/gitsigns.nvim",
     opts = {},
   },
-  {
-    "NMAC427/guess-indent.nvim",
-    opts = {},
-  },
+  -- {
+  --   "NMAC427/guess-indent.nvim",
+  --   opts = {},
+  -- },
   {
     "mfussenegger/nvim-lint",
   },

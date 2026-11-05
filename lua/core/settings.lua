@@ -47,6 +47,9 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.foldtext = ""
+-- Don't save fold state in sessions (incl. :restart); it would override the
+-- settings above and can't reliably restore treesitter folds anyway
+vim.opt.sessionoptions:remove("folds")
 
 -- 4 size tab, expand tabs to spaces
 vim.o.tabstop = 4
@@ -67,20 +70,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.autoindent = true
     vim.opt_local.smartindent = false
     vim.opt_local.indentexpr = ""
-  end,
-})
-
--- Autocommands to save state of folds
-vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-  pattern = "?*",
-  callback = function()
-    vim.cmd([[silent! mkview 1]])
-  end,
-})
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  pattern = "?*",
-  callback = function()
-    vim.cmd([[silent! loadview 1]])
   end,
 })
 
