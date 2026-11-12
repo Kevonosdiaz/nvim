@@ -10,10 +10,10 @@ return {
       -- refer to the configuration section below
       bigfile = { enabled = true },
       dashboard = { enabled = true },
-      explorer = { enabled = true, git_status = true },
       input = { enabled = true },
       picker = { enabled = true },
       quickfile = { enabled = true },
+      -- explorer = { enabled = true, git_status = true },
       -- scope = { enabled = true },
       -- statuscolumn = { enabled = true },
       -- words = { enabled = true },
@@ -51,21 +51,6 @@ return {
         end,
         desc = "Command History",
       },
-      -- {
-      --   "<leader>e",
-      --   function()
-      --     Snacks.picker.explorer()
-      --   end,
-      --   desc = "File [E]xplorer",
-      -- },
-      -- Find
-      -- {
-      --   "<leader>fb",
-      --   function()
-      --     Snacks.picker.buffers()
-      --   end,
-      --   desc = "Buffers",
-      -- },
       {
         "<leader>fc",
         function()
